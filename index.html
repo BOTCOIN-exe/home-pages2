@@ -72,22 +72,34 @@
         /* Tombol Header */
         .header-buttons {
             display: flex;
-            gap: 5px;
+            flex-direction: column; /* Tombol ditampilkan vertikal */
+            gap: 10px;
+            align-items: flex-start;
+            margin-top: 80px; /* Memberikan jarak antara tombol dan header */
         }
 
         .header-buttons button {
             background: none;
             border: 2px solid gold;
             color: white;
-            font-size: 12px;
+            font-size: 14px;
             padding: 6px 8px;
             cursor: pointer;
             transition: 0.3s;
+            width: 200px;
         }
 
         .header-buttons button:hover {
             background: gold;
             color: black;
+        }
+
+        /* Tombol Log Out lebih kecil */
+        .logout-button {
+            font-size: 12px;
+            padding: 4px 6px;
+            width: 150px;
+            margin-top: 10px;
         }
 
         /* Kolom Foto Profil */
@@ -127,6 +139,13 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
+
+        /* Log out button at the top-right */
+        .logout-container {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -148,8 +167,10 @@
         <button onclick="window.location.href='link-airdrop'">Airdrop</button>
         <button onclick="window.location.href='link-presale'">Pre Sale</button>
         <button onclick="window.location.href='link-help-center'">Help Center</button>
-        <!-- Tombol Logout -->
-        <button onclick="window.location.href='https://botcoin-exe.github.io/home-page/'">Log Out</button>
+    </div>
+    <div class="logout-container">
+        <!-- Tombol Log Out -->
+        <button class="logout-button" onclick="window.location.href='https://botcoin-exe.github.io/home-page/'">Log Out</button>
     </div>
 </div>
 
