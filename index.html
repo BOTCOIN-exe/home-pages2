@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTCOIN - Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /* Body background dengan blur */
+        body {
+            background: url('https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/Screenshot_2025-02-07-14-32-59-88_99c04817c0de5652397fc8b56c3b3817.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Overlay untuk mengurangi kejelasan background dan blur */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            filter: blur(8px); /* Mengaburkan background */
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 2px solid gold;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: gold;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.8);
+            flex-grow: 1; /* Membuat judul mengisi ruang yang tersedia */
+        }
+
+        /* Kolom Nilai */
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            color: gold;
+            margin-left: 10px;
+        }
+
+        /* Tombol Header */
+        .header-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .header-buttons button {
+            background: none;
+            border: 2px solid gold;
+            color: white;
+            font-size: 12px;
+            padding: 6px 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-buttons button:hover {
+            background: gold;
+            color: black;
+        }
+
+        /* Kolom Foto Profil */
+        .profile-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid gold;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .profile-photo:hover {
+            opacity: 0.8;
+        }
+
+        /* Username */
+        .username {
+            font-size: 14px;
+            color: gold;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* Konten */
+        .content {
+            padding: 20px;
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 90px;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <img src="https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/Screenshot_2025-02-07-14-32-59-88_99c04817c0de5652397fc8b56c3b3817.jpg" alt="BOTCOIN Logo" class="logo">
+    <div class="header-title">BOTCOIN</div>
+    <!-- Kolom Nilai -->
+    <div class="score" id="score">0</div>
+    <div class="header-buttons">
+        <!-- Kolom Foto Profil -->
+        <input type="file" id="profile-photo-input" style="display: none;" accept="image/*" onchange="previewImage(event)">
+        <img src="https://via.placeholder.com/60" alt="Profile Photo" id="profile-photo" class="profile-photo" onclick="document.getElementById('profile-photo-input').click()">
+        <div class="username" id="username">Username</div> <!-- Menampilkan Username -->
+        <button onclick="window.location.href='link-whitepaper'">Whitepaper</button>
+        <button onclick="window.location.href='link-terms-of-service'">Terms of Service</button>
+        <button onclick="window.location.href='link-privacy-policy'">Privacy Policy</button>
+        <button onclick="window.location.href='link-airdrop'">Airdrop</button>
+        <button onclick="window.location.href='link-presale'">Pre Sale</button>
+        <button onclick="window.location.href='link-help-center'">Help Center</button>
+        <!-- Tombol Logout -->
+        <button onclick="window.location.href='https://botcoin-exe.github.io/home-page/'">Log Out</button>
+    </div>
+</div>
+
+<!-- Konten -->
+<div class="content">
+    <h2>Welcome to BOTCOIN</h2>
+    <p>BOTCOIN is a cryptocurrency designed to provide users with the opportunity to earn airdrop points by completing various tasks.</p>
+</div>
+
+<script>
+    // Menampilkan username setelah login
+    window.onload = function() {
+        var username = localStorage.getItem('username');  // Mengambil username dari localStorage
+        if (username) {
+            document.getElementById('username').textContent = username; // Menampilkan username di bawah foto profil
+        }
+    };
+
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('profile-photo');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Fungsi untuk memperbarui nilai setelah tugas diselesaikan
+    function updateScore(newScore) {
+        document.getElementById('score').textContent = newScore;
+    }
+</script>
+
+</body>
+</html>
