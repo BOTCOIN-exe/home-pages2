@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOTCOIN - Homepage</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -40,43 +38,45 @@
             padding: 15px 30px;
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            position: relative;
             width: 100%;
+            position: relative;
         }
 
-        /* Logo dan judul dalam satu container */
+        /* Logo di kiri agar tidak tertimpa judul */
         .header-left {
             display: flex;
             align-items: center;
             gap: 10px;
-            position: relative;
-            width: 100%;
         }
 
         .logo {
             width: 50px;
             height: 50px;
+            margin-left: -10px; /* Menggeser logo lebih ke kiri */
         }
 
-        /* Judul Halaman di Tengah dengan Font Modern */
+        /* Judul Halaman di Tengah dengan Gaya Artistik */
         .header-title {
-            font-size: 42px; /* Ukuran lebih besar */
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
+            font-size: 38px; /* Ukuran lebih besar */
+            font-weight: 900;
             text-transform: uppercase;
-            color: gold; /* Warna emas */
-            text-shadow: 5px 5px 15px rgba(255, 215, 0, 1); /* Efek bayangan lebih kuat */
+            color: gold;
+            text-shadow: 4px 4px 10px rgba(255, 215, 0, 0.8);
+            font-family: "Brush Script MT", cursive; /* Gaya tulisan artistik */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
         }
 
-        /* Kolom Nilai */
+        /* Nilai di sebelah kiri username */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .score-container {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.2);
             padding: 8px 15px;
             border-radius: 10px;
@@ -85,12 +85,11 @@
             font-size: 18px;
         }
 
-        /* Profil di sudut kanan */
+        /* Profil dengan username di bawah foto profil */
         .profile-section {
             display: flex;
-            flex-direction: column; /* Username di bawah foto profil */
+            flex-direction: column;
             align-items: center;
-            gap: 5px;
             cursor: pointer;
         }
 
@@ -102,24 +101,47 @@
         }
 
         .username {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
-            text-align: center;
+            margin-top: 5px;
         }
 
-        /* Tombol lebih dekat ke header */
+        /* Tombol Log Out */
+        .logout-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 30px;
+        }
+
+        .logout-button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .logout-button:hover {
+            background: darkred;
+        }
+
+        /* Container tombol lebih dekat ke header */
         .button-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 50px; /* Lebih dekat ke header */
-            gap: 15px;
+            margin-top: 20px; /* Jarak lebih dekat ke header */
+            gap: 10px; /* Jarak antar tombol lebih rapat */
         }
 
         /* Tombol berbentuk jajaran genjang */
         .parallelogram-button {
-            background: rgba(192, 192, 192, 0.5); /* Silver transparan */
+            background: rgba(192, 192, 192, 0.5);
             color: black;
             font-size: 18px;
             font-weight: bold;
@@ -133,12 +155,27 @@
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efek glow saat hover */
         .parallelogram-button:hover {
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.8);
         }
 
+        /* Responsif untuk Desktop */
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 48px; /* Lebih besar di desktop */
+            }
+
+            .parallelogram-button {
+                font-size: 20px;
+                padding: 18px 50px;
+                width: 300px;
+            }
+
+            .username {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -147,13 +184,20 @@
 <div class="header">
     <div class="header-left">
         <img src="https://i.postimg.cc/yYK0TpCP/Screenshot-2025-02-07-14-32-59-88-99c04817c0de5652397fc8b56c3b3817.jpg" class="logo">
-        <div class="header-title">BOTCOIN</div>
     </div>
-    <div class="score-container">Nilai: <span id="user-score">0</span></div>
-    <div class="profile-section" onclick="editProfile()">
-        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic" id="profile-pic">
-        <div class="username" id="username">Username</div>
+    <div class="header-title">BOTCOIN</div>
+    <div class="header-right">
+        <div class="score-container">Nilai: <span id="user-score">0</span></div>
+        <div class="profile-section" onclick="editProfile()">
+            <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic" id="profile-pic">
+            <div class="username" id="username">Username</div>
+        </div>
     </div>
+</div>
+
+<!-- Tombol Log Out -->
+<div class="logout-container">
+    <button class="logout-button" onclick="logout()">Log Out</button>
 </div>
 
 <!-- Container tombol lebih dekat ke header -->
@@ -167,26 +211,11 @@
 </div>
 
 <script>
-    // Simulasi update nilai
-    let score = 0;
-
-    function updateScore(points) {
-        score += points;
-        document.getElementById("user-score").innerText = score;
-    }
-
-    function editProfile() {
-        let newUsername = prompt("Masukkan username baru:", document.getElementById("username").innerText);
-        if (newUsername) {
-            document.getElementById("username").innerText = newUsername;
-        }
-
-        let newProfilePic = prompt("Masukkan URL gambar profil baru:");
-        if (newProfilePic) {
-            document.getElementById("profile-pic").src = newProfilePic;
-        }
+    function logout() {
+        alert("Anda telah logout!");
+        window.location.href = "link-logout";
     }
 </script>
 
 </body>
-</html>
+        </html>
