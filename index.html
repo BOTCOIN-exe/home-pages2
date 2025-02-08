@@ -39,22 +39,28 @@
             background: rgba(0, 0, 0, 0.8);
             color: white;
             position: relative;
+            width: 100%;
+        }
+
+        /* Logo di sudut kiri */
+        .logo {
+            width: 50px;
+            height: 50px;
         }
 
         .header-title {
             font-size: 24px;
             font-weight: bold;
-            flex-grow: 1;
             text-align: center;
+            flex-grow: 1;
         }
 
-        /* Profil + Kolom Nilai */
+        /* Profil di sudut kanan */
         .profile-section {
             display: flex;
             align-items: center;
             gap: 15px;
-            position: absolute;
-            right: 30px;
+            cursor: pointer;
         }
 
         .profile-pic {
@@ -82,7 +88,13 @@
             font-size: 18px;
         }
 
-        /* Tombol Log Out */
+        /* Tombol Log Out di atas menu */
+        .logout-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 30px;
+        }
+
         .logout-button {
             background: red;
             color: white;
@@ -137,13 +149,18 @@
 
 <!-- Header -->
 <div class="header">
+    <img src="https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/botcoin-logo.png" alt="BOTCOIN Logo" class="logo">
     <div class="header-title">BOTCOIN</div>
     <div class="score-container">Nilai: <span id="user-score">0</span></div>
-    <div class="profile-section">
-        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic">
-        <div class="username">Username</div>
-        <button class="logout-button" onclick="logout()">Log Out</button>
+    <div class="profile-section" onclick="editProfile()">
+        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic" id="profile-pic">
+        <div class="username" id="username">Username</div>
     </div>
+</div>
+
+<!-- Tombol Log Out di atas daftar menu -->
+<div class="logout-container">
+    <button class="logout-button" onclick="logout()">Log Out</button>
 </div>
 
 <!-- Container tombol -->
@@ -169,7 +186,19 @@
         alert("Anda telah logout!");
         window.location.href = "link-logout";
     }
+
+    function editProfile() {
+        let newUsername = prompt("Masukkan username baru:", document.getElementById("username").innerText);
+        if (newUsername) {
+            document.getElementById("username").innerText = newUsername;
+        }
+
+        let newProfilePic = prompt("Masukkan URL gambar profil baru:");
+        if (newProfilePic) {
+            document.getElementById("profile-pic").src = newProfilePic;
+        }
+    }
 </script>
 
 </body>
-</html>
+                                                                                                  </html>
