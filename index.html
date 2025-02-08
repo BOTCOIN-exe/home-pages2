@@ -42,7 +42,7 @@
             position: relative;
         }
 
-        /* Logo di kiri agar tidak tertimpa judul */
+        /* Logo di kiri */
         .header-left {
             display: flex;
             align-items: center;
@@ -57,7 +57,7 @@
 
         /* Judul Halaman di Tengah dengan Gaya Artistik */
         .header-title {
-            font-size: 38px; /* Ukuran lebih besar */
+            font-size: 38px;
             font-weight: 900;
             text-transform: uppercase;
             color: gold;
@@ -69,20 +69,19 @@
             white-space: nowrap;
         }
 
-        /* Nilai di sebelah kiri username */
+        /* Profil dan Nilai */
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px; /* Memberi jarak lebih besar */
+            margin-right: 20px; /* Menggeser lebih ke kanan */
         }
 
+        /* Menampilkan angka nilai saja dan sejajar dengan username */
         .score-container {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
-            border-radius: 10px;
-            color: white;
-            font-weight: bold;
             font-size: 18px;
+            font-weight: bold;
+            color: white;
         }
 
         /* Profil dengan username di bawah foto profil */
@@ -91,131 +90,75 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
+            margin-left: 40px; /* Menggeser ke kanan agar tidak tertimpa judul */
         }
 
         .profile-pic {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 2px solid white;
         }
 
         .username {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
+            color: white;
             margin-top: 5px;
         }
 
-        /* Tombol Log Out */
-        .logout-container {
+        /* Tombol menu lebih dekat ke header */
+        .menu {
             display: flex;
-            justify-content: flex-end;
-            padding: 20px 30px;
-        }
-
-        .logout-button {
-            background: red;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .logout-button:hover {
-            background: darkred;
-        }
-
-        /* Container tombol lebih dekat ke header */
-        .button-container {
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            margin-top: 20px; /* Jarak lebih dekat ke header */
-            gap: 10px; /* Jarak antar tombol lebih rapat */
+            gap: 15px;
+            margin-top: 10px;
         }
 
-        /* Tombol berbentuk jajaran genjang */
-        .parallelogram-button {
-            background: rgba(192, 192, 192, 0.5);
+        .menu button {
+            background: gold;
             color: black;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
+            padding: 10px 20px;
             border: none;
-            padding: 15px 40px;
-            width: 250px;
-            text-align: center;
+            border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
-            transform: skewX(-20deg);
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .parallelogram-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Responsif untuk Desktop */
-        @media (min-width: 768px) {
-            .header-title {
-                font-size: 48px; /* Lebih besar di desktop */
-            }
-
-            .parallelogram-button {
-                font-size: 20px;
-                padding: 18px 50px;
-                width: 300px;
-            }
-
-            .username {
-                font-size: 16px;
-            }
+        .menu button:hover {
+            background: orange;
         }
     </style>
 </head>
 <body>
 
-<!-- Header -->
-<div class="header">
-    <div class="header-left">
-        <img src="https://i.postimg.cc/yYK0TpCP/Screenshot-2025-02-07-14-32-59-88-99c04817c0de5652397fc8b56c3b3817.jpg" class="logo">
-    </div>
-    <div class="header-title">BOTCOIN</div>
-    <div class="header-right">
-        <div class="score-container">Nilai: <span id="user-score">0</span></div>
-        <div class="profile-section" onclick="editProfile()">
-            <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic" id="profile-pic">
-            <div class="username" id="username">Username</div>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/logo.png" alt="Logo" class="logo">
+        </div>
+
+        <div class="header-title">BOTCOIN</div>
+
+        <div class="header-right">
+            <div class="score-container">1000</div> <!-- Hanya angka nilai -->
+            <div class="profile-section">
+                <img src="https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/profile.jpg" alt="Profile" class="profile-pic">
+                <div class="username">User123</div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Tombol Log Out -->
-<div class="logout-container">
-    <button class="logout-button" onclick="logout()">Log Out</button>
-</div>
-
-<!-- Container tombol lebih dekat ke header -->
-<div class="button-container">
-    <button class="parallelogram-button" onclick="window.location.href='link-whitepaper'">Whitepaper</button>
-    <button class="parallelogram-button" onclick="window.location.href='link-terms-of-service'">Terms of Service</button>
-    <button class="parallelogram-button" onclick="window.location.href='link-privacy-policy'">Privacy Policy</button>
-    <button class="parallelogram-button" onclick="window.location.href='link-airdrop'">Airdrop</button>
-    <button class="parallelogram-button" onclick="window.location.href='link-help-center'">Help Center</button>
-    <button class="parallelogram-button" onclick="window.location.href='link-donation'">Donation</button>
-</div>
-
-<script>
-    function logout() {
-        alert("Anda telah logout!");
-        window.location.href = "link-logout";
-    }
-</script>
+    <!-- Menu Tombol -->
+    <div class="menu">
+        <button>Whitepaper</button>
+        <button>Terms of Service</button>
+        <button>Privacy Policy</button>
+        <button>Airdrop</button>
+        <button>Help Center</button>
+        <button>Donation</button>
+    </div>
 
 </body>
-        </html>
+</html>
