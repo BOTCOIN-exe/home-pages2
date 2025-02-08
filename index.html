@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOTCOIN - Homepage</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +18,6 @@
         body {
             background: url('https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/Screenshot_2025-02-07-14-32-59-88_99c04817c0de5652397fc8b56c3b3817.jpg') no-repeat center center fixed;
             background-size: cover;
-            overflow-x: hidden; /* Hindari scroll horizontal */
         }
 
         /* Overlay */
@@ -34,103 +35,91 @@
         /* Header */
         .header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
+            align-items: center;
+            padding: 15px 30px;
             background: rgba(0, 0, 0, 0.8);
             color: white;
+            position: relative;
             width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
         }
 
-        /* Logo */
+        /* Logo dan judul dalam satu container */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            width: 100%;
+        }
+
         .logo {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
         }
 
-        /* Judul berada di tengah */
+        /* Judul Halaman di Tengah dengan Font Modern */
         .header-title {
-            font-size: 22px;
-            font-weight: 900;
+            font-size: 42px; /* Ukuran lebih besar */
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
-            color: gold;
-            text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.8);
-            flex-grow: 1;
-            text-align: center;
+            color: gold; /* Warna emas */
+            text-shadow: 5px 5px 15px rgba(255, 215, 0, 1); /* Efek bayangan lebih kuat */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
         }
 
         /* Kolom Nilai */
         .score-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.2);
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 10px;
             color: white;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
         }
 
-        /* Profil */
+        /* Profil di sudut kanan */
         .profile-section {
             display: flex;
+            flex-direction: column; /* Username di bawah foto profil */
             align-items: center;
-            gap: 10px;
+            gap: 5px;
             cursor: pointer;
         }
 
         .profile-pic {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             border: 2px solid white;
         }
 
         .username {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
+            text-align: center;
         }
 
-        /* Logout */
-        .logout-container {
-            display: flex;
-            justify-content: flex-end;
-            padding: 15px 20px;
-            margin-top: 60px; /* Agar tidak menempel header */
-        }
-
-        .logout-button {
-            background: red;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .logout-button:hover {
-            background: darkred;
-        }
-
-        /* Container tombol */
+        /* Tombol lebih dekat ke header */
         .button-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding-top: 80px;
+            margin-top: 50px; /* Lebih dekat ke header */
             gap: 15px;
         }
 
         /* Tombol berbentuk jajaran genjang */
         .parallelogram-button {
-            background: rgba(192, 192, 192, 0.5);
+            background: rgba(192, 192, 192, 0.5); /* Silver transparan */
             color: black;
             font-size: 18px;
             font-weight: bold;
@@ -144,44 +133,22 @@
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
 
+        /* Efek glow saat hover */
         .parallelogram-button:hover {
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.8);
         }
 
-        /* Mode Mobile */
-        @media (max-width: 768px) {
-            .header-title {
-                font-size: 18px; /* Ukuran judul lebih kecil */
-            }
-
-            .score-container {
-                font-size: 14px;
-                padding: 5px;
-            }
-
-            .profile-pic {
-                width: 35px;
-                height: 35px;
-            }
-
-            .username {
-                font-size: 12px;
-            }
-
-            .parallelogram-button {
-                width: 220px;
-                font-size: 16px;
-            }
-        }
     </style>
 </head>
 <body>
 
 <!-- Header -->
 <div class="header">
-    <img src="https://i.postimg.cc/yYK0TpCP/Screenshot-2025-02-07-14-32-59-88-99c04817c0de5652397fc8b56c3b3817.jpg" class="logo">
-    <div class="header-title">BOTCOIN</div>
+    <div class="header-left">
+        <img src="https://i.postimg.cc/yYK0TpCP/Screenshot-2025-02-07-14-32-59-88-99c04817c0de5652397fc8b56c3b3817.jpg" class="logo">
+        <div class="header-title">BOTCOIN</div>
+    </div>
     <div class="score-container">Nilai: <span id="user-score">0</span></div>
     <div class="profile-section" onclick="editProfile()">
         <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic" id="profile-pic">
@@ -189,12 +156,7 @@
     </div>
 </div>
 
-<!-- Tombol Log Out -->
-<div class="logout-container">
-    <button class="logout-button" onclick="logout()">Log Out</button>
-</div>
-
-<!-- Container tombol -->
+<!-- Container tombol lebih dekat ke header -->
 <div class="button-container">
     <button class="parallelogram-button" onclick="window.location.href='link-whitepaper'">Whitepaper</button>
     <button class="parallelogram-button" onclick="window.location.href='link-terms-of-service'">Terms of Service</button>
@@ -205,16 +167,12 @@
 </div>
 
 <script>
+    // Simulasi update nilai
     let score = 0;
 
     function updateScore(points) {
         score += points;
         document.getElementById("user-score").innerText = score;
-    }
-
-    function logout() {
-        alert("Anda telah logout!");
-        window.location.href = "link-logout";
     }
 
     function editProfile() {
