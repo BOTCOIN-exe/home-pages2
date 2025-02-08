@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>BOTCOIN - Homepage</title>
     <style>
         * {
@@ -16,6 +16,7 @@
         body {
             background: url('https://raw.githubusercontent.com/BOTCOIN-exe/logo-botcoin/refs/heads/main/Screenshot_2025-02-07-14-32-59-88_99c04817c0de5652397fc8b56c3b3817.jpg') no-repeat center center fixed;
             background-size: cover;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
 
         /* Overlay */
@@ -38,7 +39,6 @@
             padding: 15px 30px;
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            position: relative;
             width: 100%;
         }
 
@@ -48,7 +48,6 @@
             align-items: center;
             gap: 10px;
             position: relative;
-            width: 100%;
         }
 
         .logo {
@@ -56,30 +55,25 @@
             height: 50px;
         }
 
-        /* Judul Halaman di Tengah dengan Warna Emas dan Efek Bayangan */
+        /* Judul Halaman */
         .header-title {
-            font-size: 32px;
-            font-weight: 900; /* Ketebalan maksimal */
+            font-size: 28px;
+            font-weight: 900;
             text-transform: uppercase;
-            color: gold; /* Warna emas */
-            text-shadow: 4px 4px 10px rgba(255, 215, 0, 0.8); /* Efek bayangan */
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
+            color: gold;
+            text-shadow: 4px 4px 10px rgba(255, 215, 0, 0.8);
         }
 
-        /* Kolom Nilai */
+        /* Kolom Nilai (Digeser ke Kanan) */
         .score-container {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.2);
             padding: 8px 15px;
             border-radius: 10px;
             color: white;
             font-weight: bold;
             font-size: 18px;
+            margin-left: auto;
+            margin-right: 20px;
         }
 
         /* Profil di sudut kanan */
@@ -102,7 +96,7 @@
             font-weight: bold;
         }
 
-        /* Tombol Log Out di atas menu */
+        /* Tombol Log Out */
         .logout-container {
             display: flex;
             justify-content: flex-end;
@@ -131,13 +125,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             gap: 15px;
         }
 
-        /* Tombol berbentuk jajaran genjang dengan efek bayangan */
+        /* Tombol berbentuk jajaran genjang */
         .parallelogram-button {
-            background: rgba(192, 192, 192, 0.5); /* Silver transparan */
+            background: rgba(192, 192, 192, 0.5);
             color: black;
             font-size: 18px;
             font-weight: bold;
@@ -151,10 +145,18 @@
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efek glow saat hover */
         .parallelogram-button:hover {
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mode Desktop di HP */
+        @media (max-width: 768px) {
+            body {
+                width: 100%;
+                min-width: 1024px; /* Paksa tampilan seperti desktop */
+                overflow-x: auto; /* Buka scroll horizontal jika perlu */
+            }
         }
 
     </style>
@@ -174,7 +176,7 @@
     </div>
 </div>
 
-<!-- Tombol Log Out di atas daftar menu -->
+<!-- Tombol Log Out -->
 <div class="logout-container">
     <button class="logout-button" onclick="logout()">Log Out</button>
 </div>
@@ -190,7 +192,6 @@
 </div>
 
 <script>
-    // Simulasi update nilai
     let score = 0;
 
     function updateScore(points) {
@@ -217,4 +218,4 @@
 </script>
 
 </body>
-        </html>
+</html>
